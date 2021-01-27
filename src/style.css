@@ -1,0 +1,109 @@
+.calendar-row-tile {
+    height: 15vh;
+}
+
+.calendar {
+    margin: 20px;
+}
+
+.month-day {
+    border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.month-day .tile-date {
+    color: #777;
+}
+
+.tile-photo {
+    width: 14.28vw;
+    height: 12vh;
+}
+
+.tile-date {
+    color: #777;
+    font-size: large;
+    padding-right: 5px;
+}
+
+.blank-tile {
+    color: #ccc;
+    font-size: large;
+}
+
+.date-header {
+    border-bottom: 2px solid #777;
+}
+
+.tile, .react-calendar__navigation__arrow, .react-calendar__navigation__label {
+    background: white;
+    border: none;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.tile {
+    height: 20vh;
+    text-align: left;
+    padding: 0;
+    padding-bottom: 20vh;
+}
+
+.tile abbr {
+    display: none;
+}
+
+.tile-legends {
+    margin: 5px;
+}
+
+.expanded-photo {
+    width: 300px;
+    height: 400px;
+}
+
+.legends-ratings {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* .calendar-tile {
+     width: 250px
+} */
+
+.expand-tile-card {
+    margin: 20px;
+    max-width: 300px;
+}
+
+.side-tile {
+    opacity: 0.5;
+    max-width: 270px;
+}
+
+.side-tile-photo {
+    max-width: 270px;
+    height: 300px;
+}
+
+.HC, .Cu, .Pr, .DC, .C {
+    border-radius: 70%;
+    padding: 5px;
+    font-size: x-small;
+}
+
+.HC, .Cu {
+    background-color: #F4DFEB;
+}
+
+.Pr {
+    background-color: #ddebf1;
+}
+
+.DC {
+    background-color: #daeae7;
+}
+
+.C {
+    background-color: #fbe4e4;
+}
