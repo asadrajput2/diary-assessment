@@ -149,9 +149,9 @@ export default function Diary() {
 
     return (
         <div className="container">
-            <button
+            {/* <button
                 onClick={goBack}
-            > Back </button>
+            > Back </button> */}
             <Calendar
                 value={date}
                 onChange={setDate}
