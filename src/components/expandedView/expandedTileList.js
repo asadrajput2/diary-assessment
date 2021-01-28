@@ -29,7 +29,7 @@ export default function ExpandedTilesList({ modal, changeMain }) {
                     <a
                         onClick={() => changeMain(left)}
                     >
-                        <i style={{ fontSize: 'xx-large', color: "#ccc" }} className="fa fa-arrow-circle-left"></i>
+                        <i style={{ fontSize: 'xx-large', color: "#ccc", cursor: "pointer" }} className="fa fa-arrow-circle-left"></i>
                     </a>
                 }
 
@@ -63,7 +63,7 @@ export default function ExpandedTilesList({ modal, changeMain }) {
                     <a
                         onClick={() => changeMain(right)}
                     >
-                        <i style={{ fontSize: 'xx-large', color: "#ccc" }} className="fa fa-arrow-circle-right"></i>
+                        <i style={{ fontSize: 'xx-large', color: "#ccc", cursor: "pointer" }} className="fa fa-arrow-circle-right"></i>
                     </a>
                 }
             </div>

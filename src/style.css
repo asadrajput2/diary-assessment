@@ -2,6 +2,14 @@
     height: 15vh;
 }
 
+.container {
+    max-width: 750px;
+}
+
+.react-calendar__navigation__arrow, .react-calendar__navigation__label {
+    display: none;
+}
+
 .calendar {
     margin: 20px;
 }
@@ -16,8 +24,8 @@
 }
 
 .tile-photo {
-    width: 14.28vw;
-    height: 12vh;
+    width: 9.7vw;
+    height: 7vh;
 }
 
 .tile-date {
@@ -43,10 +51,10 @@
 }
 
 .tile {
-    height: 20vh;
+    height: 15vh;
     text-align: left;
     padding: 0;
-    padding-bottom: 20vh;
+    padding-bottom: 15vh;
 }
 
 .tile abbr {
@@ -106,4 +114,35 @@
 
 .C {
     background-color: #fbe4e4;
+}
+
+.calendar-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.head-date {
+    font-size: x-large;
+}
+
+.head-today-btn {
+    background: #efefef;
+    color: #555;
+}
+
+.head-today-btn>button {
+    padding: 5px;
+}
+
+.date-today {
+    background: #dc3545;
+    padding: 4px;
+    color: white;
+    font-size: smaller;
+}
+
+.other-month {
+    color: #bbb;
 }

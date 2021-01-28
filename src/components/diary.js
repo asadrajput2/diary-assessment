@@ -83,16 +83,16 @@ export default function Diary() {
             .then(data => setData(data.responseobjects[0].posts));
     }, []);
 
-    // useEffect(() => {
-    //     window.addEventListener('scroll', handleScroll, { passive: true });
+    useEffect(() => {
+        // window.addEventListener('wheel', (event) => handleWheel(event));
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
-    //     return () =>
-    //         window.removeEventListener('scroll', handleScroll);
-    // })
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            // window.removeEventListener('wheel', handleWheel);
+        }
+    });
 
-    // function closeModal() {
-    //     setOpen(false);
-    // }
 
 
     function changeMain(post) {
@@ -105,13 +105,9 @@ export default function Diary() {
         });
     }
 
-    // useEffect(() => {
-    //     setModal({
-    //         ...modal,
-    //         moreLeft: modal.left && data.indexOf(modal.left) < (data.length - 1),
-    //         moreRight: modal.right && data.indexOf(modal.right) !== 0
-    //     });
-    // }, [modal.main]);
+    function goToToday() {
+        setNewDate(moment());
+    }
 
     function goBack() {
         setNewDate(moment(newDate).subtract(1, "month").toLocaleString());
@@ -122,13 +118,15 @@ export default function Diary() {
     }
 
     function handleScroll() {
-        if (window.scrollY > scrolPos) {
-            goForward();
-        } else {
-            goBack();
-        }
-
         setScrollPos(window.scrollY);
+    }
+
+    function handleWheel(event) {
+        if (window.scrollY === 0 && event.deltaY < 0) {
+            goBack();
+        } else if (event.deltaY > 0 && window.scrollY >= scrolPos) {
+            goForward();
+        }
     }
 
     function addPosts(date) {
@@ -144,19 +142,36 @@ export default function Diary() {
                 break;
             }
         }
-        console.log("more: ", modal.moreLeft, modal.moreRight);
     }
 
     return (
-        <div className="container">
+        <div
+            className="container"
+            onWheel={handleWheel}
+
+        >
+            <div className="calendar-head">
+                <span className="head-date">
+                    <b>{moment(newDate).format('MMMM')}</b> {' '}
+                    {moment(newDate).format('YYYY')}
+                </span>
+                <span className="head-today-btn">
+                    <button
+                        className="btn"
+                        onClick={goToToday}
+                    >
+                        Today
+                    </button>
+                </span>
+            </div>
             {/* <button
                 onClick={goBack}
             > Back </button> */}
             <Calendar
                 value={date}
-                onChange={setDate}
+                // onChange={setDate}
                 tileClassName="tile"
-                // activeStartDate={new Date(newDate)}
+                activeStartDate={new Date(newDate)}
                 onChange={
                     (date) => {
                         for (let post of data)
@@ -174,11 +189,11 @@ export default function Diary() {
                             for (let post of data) {
                                 if (moment(post['calendardatetime']).format("YYYY-MM-DD") === moment(date).format("YYYY-MM-DD")) {
                                     !printed;
-                                    return <Tile date={date.getDate()} post={post} />;
+                                    return <Tile date={date} post={post} newDate={newDate} />;
                                 }
                             }
                             if (!printed) {
-                                return <Tile date={date.getDate()} post={undefined} />;
+                                return <Tile date={date} post={undefined} newDate={newDate} />;
                             }
                         }
                     }
@@ -189,7 +204,7 @@ export default function Diary() {
                     data={data}
                     changeMain={(post) => changeMain(post)}
                     modal={modal}
-                    // closeModal={() => closeModal()}
+                // closeModal={() => closeModal()}
                 />
             </Modal>
         </div>
