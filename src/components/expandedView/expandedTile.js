@@ -8,14 +8,15 @@ export default function ExpandedTile({ tileClass, photoClass, post }) {
     const {
         rating,
         calendardatetime,
-        images,
+        media,
         typeofday,
         text
     } = post;
 
 
+    console.log("media: ", media);
     const date = calendardatetime && moment(calendardatetime).format("Do MMM, YYYY");
-    const imageurl = images && images[0].imageurl;
+    const imageurl = media && media[0].mediaurl;
 
     return (
         <div

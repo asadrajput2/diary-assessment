@@ -1,7 +1,7 @@
 import React from 'react';
 import ExpandedTile from './expandedTile';
 
-export default function ExpandedTilesList({ modal, changeMain }) {
+export default function ExpandedTilesList({ modal, changeMain, onCloseTile }) {
 
     const {
         main,
@@ -11,15 +11,16 @@ export default function ExpandedTilesList({ modal, changeMain }) {
         moreRight
     } = modal;
 
-
     return (
         <div className="container">
-            {/* <button
-                className="float-right"
-                onClick={() => closeModal()}
+            <button
+                className="btn btn-secondary float-right rounded-circle"
+                data-testid="close-button"
+                style={{ marginTop: "10px" }}
+                onClick={onCloseTile}
             >
                 &times;
-            </button> */}
+            </button>
             <div
                 className="d-flex justify-content-center align-items-center"
                 style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}

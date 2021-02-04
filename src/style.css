@@ -119,8 +119,10 @@
 .calendar-head {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    position: fixed;
+    background: white;
+    width: 720px;
+    padding: 10px;
 }
 
 .head-date {
@@ -145,4 +147,55 @@
 
 .other-month {
     color: #bbb;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    display: none;
+}
+
+.day_names {
+    display: block;
+    position: fixed;
+}
+
+.sunday {
+    background-color: #efefef;
+}
+
+.hidden-tile {
+    display: none;
+}
+
+.react-responsive-modal-root {
+    z-index: 1000;
+}
+
+.head-days {
+    position: fixed;
+    top: 50px;
+    display: flex;
+    justify-content: space-around;
+    width: 720px;
+    background: white;
+    border-bottom: #444 1px solid;
+}
+
+.react-responsive-modal-closeButton {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
